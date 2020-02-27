@@ -9,7 +9,7 @@ module.exports = async msg => {
     if (msg.author.bot) return; // Doesn't answer to bots
 
     try {
-        if (msg.channel.id === '320829336250875904') { 
+        if (msg.channel.id === '320829336250875904') {
             msg.client.guilds
                 .find(g => g.id === '323450816960921602').channels
                 .find(c => c.id === '673173737012592640')
@@ -22,7 +22,7 @@ module.exports = async msg => {
         }
     } catch (error) {
         console.error(error);
-    }
+    } 
 
     // Command handling
     if (msg.content.startsWith(prefix)) {

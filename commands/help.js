@@ -3,7 +3,7 @@ const config = require('../config.json');
 
 exports.run = async (client, msg, args) => {
 
-    // help all
+    // help all 
     if (args.length === 0) {
         let embed = new Discord.RichEmbed()
             .setTitle('Commands')
