@@ -1,0 +1,10 @@
+TODO:
+- logger: send logs to different discord
+- ticket system: !close mutes the channel for a time before deleting
+- ticket system: auto close after time
+- bot.message methode with auto delete
+
+TO BE IMPLEMENTED:
+- !dm
+- !mute
+- command.conf aliases
