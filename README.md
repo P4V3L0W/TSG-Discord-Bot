@@ -39,7 +39,8 @@ The template can be used by typing discord.exportKS (`Ctrl + Shift + P`)
 		"};"
 	],
 	"description": "Template for Discord exports (i.e. commands)"
-}```
+}
+```
 
 
 # kS-Discord-bot
