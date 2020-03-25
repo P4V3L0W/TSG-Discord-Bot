@@ -16,12 +16,10 @@ exports.create = (client, params, result) => {
     guild.createChannel(name, type)
         .then(async c => {
             c.setParent(client.config.ticketcategory);
-            guild.roles.forEach(r => { // denied roles
-                c.overwritePermissions(r, {
-                    VIEW_CHANNEL: false,
-                    SEND_MESSAGES: false
-                });
-            })
+            c.overwritePermissions(guild.defaultRole, {
+                VIEW_CHANNEL: false,
+                SEND_MESSAGES: false
+            });
             c.overwritePermissions(author, { // allowed author
                 VIEW_CHANNEL: true,
                 SEND_MESSAGES: true
