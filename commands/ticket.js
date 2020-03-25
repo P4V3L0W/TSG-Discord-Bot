@@ -1,33 +1,16 @@
 const Discord = require('discord.js');
+const ticketFactory = require('../util/ticketFactory');
 
 exports.run = async (client, msg, args) => {
-    // channel name
-    let id = msg.createdTimestamp.toString().substr(9, 4) + msg.author.discriminator;
+    var name = 'ticket-' + msg.createdTimestamp.toString().substr(9, 4) + msg.author.discriminator;
+    var params = ['ticket', name, msg.author, msg.guild.roles.find(r => r.name === 'Leader'), args.join(' ')]
+    var result = 0;
 
-    // channel creation and permissions
-    msg.guild.createChannel(`ticket-${id}`, { type: 'text' })
-        .then(async c => {
-            c.setParent(client.config.ticketcategory);
-            c.overwritePermissions(msg.guild.defaultRole, {
-                VIEW_CHANNEL: false,
-                SEND_MESSAGES: false
-            });
-            c.overwritePermissions(msg.member, {
-                VIEW_CHANNEL: true,
-                SEND_MESSAGES: true
-            });
-            c.overwritePermissions(msg.guild.roles.find(r => r.name === 'Leader'), {
-                VIEW_CHANNEL: true,
-                SEND_MESSAGES: true
-            });
-            c.overwritePermissions(msg.guild.roles.find(r => r.name === 'Co-Leader'), {
-                VIEW_CHANNEL: true,
-                SEND_MESSAGES: true
-            });
-            c.setTopic(`${msg.author} | ${args.join(' ')}`);
-            c.send(`${msg.guild.roles.find(r => r.name === 'Leader')} ${msg.guild.roles.find(r => r.name === 'Co-Leader')} a new ticket has been created by ${msg.member}`);
-        })
-        .catch(console.error);
+    try {
+        ticketFactory.create(client, params, result);
+    } catch (error) {
+        console.error(error);
+    }
 };
 
 exports.conf = {

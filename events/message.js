@@ -1,10 +1,9 @@
 const Discord = require('discord.js');
-const config = require('../config.json');
 const moment = require('moment');
 
 module.exports = async msg => {
     let client = msg.client;
-    let prefix = config.prefix;
+    let prefix = client.config.prefix;
 
     if (msg.author.bot) return; // Doesn't answer to bots
 

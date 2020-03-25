@@ -3,6 +3,7 @@ const moment = require('moment');
 
 module.exports = client => {
     this.client = client;
+    let confGuild = client.guilds.find(g => g.id === client.config.guild);
 
     const log = msg => {
         console.log(`[${moment().format('YYYY-MM-DD HH:mm:ss')}] ${msg}`);
@@ -10,23 +11,19 @@ module.exports = client => {
 
     //check muted role
     if (client.commands.get('mute').conf.enabled) {
-        client.guilds.forEach(guild => {
-            if (!guild.roles.has('muted')) {
-            }
-        })
+        if (!confGuild.roles.has('muted')) {
+            //todo: add muted role
+        }
     }
 
     // roles
     client.roles = new Discord.Collection();
-    let roles = client.guilds.find(g => g.id === client.config.guild).roles;
+    let roles = confGuild.roles;
     log('============================================');
     log(`Loading a total of ${roles.size} roles.`);
     roles.forEach(r => {
-        log(`Role loaded: ${r.name}`)
+        log(`Role loaded: ${r.name}`) 
         switch (r.name) {
-            case 'Discord Bot Maker':
-                client.roles.set(r.name, 110);
-                break;
             case 'Founder':
                 client.roles.set(r.name, 100);
                 break;
