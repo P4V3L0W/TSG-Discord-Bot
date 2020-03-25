@@ -54,7 +54,7 @@ module.exports = client => {
                 client.roles.set(r.name, 20);
                 break;
             default:
-            //
+                client.roles.set(r.name, 0);
         }
 
     });

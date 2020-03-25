@@ -19,7 +19,9 @@ module.exports = async msg => {
         if (msg.channel.type === 'dm' && (cmd.conf.allowDMs === false)) return; // Only reacts to certain commands in DMs
 
         if (msg.channel.type === 'text') {
-            let powerLevel = client.roles.get(msg.member.highestRole.name);
+            let powerLevel
+            powerLevel = client.roles.get(msg.member.highestRole.name);
+            console.log('level: ' + powerLevel);
             if (cmd.conf.permLevel > powerLevel && msg.member.id != '278578257518133249') {
                 return msg.channel.send('You are not allowed to use this command!');
             }
