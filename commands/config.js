@@ -25,7 +25,7 @@ exports.conf = {
     allowDMs: false,
     aliases: [],
     delete: false,
-    permLevel: 80
+    permLevel: 110
 };
 
 exports.help = {

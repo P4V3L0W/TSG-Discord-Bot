@@ -2,8 +2,8 @@ const Discord = require('discord.js');
 
 exports.run = async (client, msg, args) => {
     let embed = new Discord.RichEmbed()
-    .setTitle('Forum')
-    .setURL('http://thesyndicategamers.com/index.php')
+    .setTitle('Donations')
+    .setURL('https://thesyndicategamers.com/index.php?donate/the-syndicate-gamers.1/donate')
     .setColor(client.config.clGreen)
     .setDescription('The Syndicate Gamers');
     
@@ -19,7 +19,7 @@ exports.conf = {
 };
 
 exports.help = {
-    name: 'forum',
-    description: 'Posts a link to the forum.',
-    usage: '\`!forum\`'
+    name: 'donate',
+    description: 'Posts a link to the unban-request form in forum.',
+    usage: '\`!donate\`'
 };

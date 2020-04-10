@@ -11,7 +11,7 @@ exports.conf = {
     enabled: true,
     allowDMs: false,
     aliases: [],
-    delete: true,
+    delete: false,
     permLevel: 60
 };
 

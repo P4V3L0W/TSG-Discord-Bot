@@ -42,7 +42,7 @@ exports.run = async (client, msg, args) => {
 };
 
 exports.conf = {
-    enabled: true,
+    enabled: false,
     allowDMs: false,
     aliases: [],
     delete: true,

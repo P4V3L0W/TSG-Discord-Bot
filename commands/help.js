@@ -9,11 +9,11 @@ exports.run = async (client, msg, args) => {
             .setTitle('Commands')
             .setColor(config.clYellow);
 
-            client.commands.forEach(c => {
-                if (c.help.description !== '') {
-                    embed.addField(`${c.help.name}`, `${c.help.usage}\n${c.help.description}`);
-                }
-            })
+        client.commands.forEach(c => {
+            if (c.conf.enabled && c.help.description !== '' && c.conf.permLevel <= 100) {
+                embed.addField(`${c.help.name}`, `${c.help.usage}\n${c.help.description}`);
+            }
+        })
 
         msg.channel.send({ embed });
     } else {  // help command
@@ -24,11 +24,9 @@ exports.run = async (client, msg, args) => {
                 .setColor(config.clYellow)
                 .setTitle(command.help.name)
                 .addField('Description', `${command.help.description}`)
-                .addField('Usage', `${command.help.usage}`);
-            if (command.conf.permLevel > 0) {
-                embed.addField('Role Restriction', `Level ${command.conf.permLevel}+ needed.`);
-            }
-            embed.addField('Works in DM', `${command.conf.allowDMs ? 'Yes' : 'No'}`);
+                .addField('Usage', `${command.help.usage}`)
+                .addField('Role Restriction', `Level ${command.conf.permLevel}+ needed.`)
+                .addField('Works in DM', `${command.conf.allowDMs ? 'Yes' : 'No'}`);
             msg.channel.send({ embed });
         }
     }

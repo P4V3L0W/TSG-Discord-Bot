@@ -1,8 +1,9 @@
 TODO:
-- logger: send logs to different discord
+- logger: send logs to log channel
 - ticket system: !close mutes the channel for a time before deleting
 - ticket system: auto close after time
-- bot.message methode with auto delete
+- bot.message method with auto delete
+- help <command> -> show role name instead of power level
 
 TO BE IMPLEMENTED:
 - !dm

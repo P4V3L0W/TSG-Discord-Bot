@@ -6,7 +6,7 @@ module.exports = member => {
     console.log(`${member.user.username} joined the server. Trying to add role.`);
 
     try {
-        let role = member.guild.roles.find(r => r.id === '673528470550216704');
+        let role = member.guild.roles.find(r => r.id === member.client.config.roleonjoin);
 
         member.addRole(role);
         console.log(`Success. ${member.user.username} has gotten the role ${role.name}`);
