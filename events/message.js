@@ -21,7 +21,7 @@ module.exports = async msg => {
         if (msg.channel.type === 'text') {
             let powerLevel
             powerLevel = client.roles.get(msg.member.highestRole.name);
-            if (cmd.conf.permLevel > powerLevel && msg.member.id != '278578257518133249') {
+            if (cmd.conf.permLevel > powerLevel && msg.member.id != client.config.superuser) {
                 return msg.channel.send('You are not allowed to use this command!');
             }
             if (cmd.conf.delete) msg.delete();
