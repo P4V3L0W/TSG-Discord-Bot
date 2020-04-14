@@ -1,4 +1,4 @@
-/.vscode
-/node_modules
-/config.json
-/todo
+.vscode
+node_modules
+config.json
+todo
