@@ -16,7 +16,7 @@ module.exports = client => {
   //////////////////////////////////////////////////////////////////////
 
   client.on('message', reqEvent('message'));                          // Any Message written
-  client.on('messageDelete', reqEvent('messagedelete'));               // Any Message deleted
+  // client.on('messageDelete', reqEvent('messagedelete'));               // Any Message deleted
   client.on('guildMemberAdd', reqEvent('memberadd'));                 // User joins the Guild
 
 };
