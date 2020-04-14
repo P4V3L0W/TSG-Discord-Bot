@@ -1,7 +1,4 @@
-# Folders
 /.vscode
 /node_modules
-
-# Files
 /config.json
 /todo
